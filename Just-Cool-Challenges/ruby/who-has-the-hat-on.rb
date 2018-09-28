@@ -1,4 +1,3 @@
-# *Problem 4*
 # *Hats*
 
 # 100 students are sitting in a row, and each has a hat on. Their strange teacher walks along the line of students (starting from the same end each time). 
