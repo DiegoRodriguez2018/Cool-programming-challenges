@@ -169,11 +169,13 @@
 
 def number_trailing_zeros n
     arr= (5..n).step(5).to_a
+    p arr
     counter = 0
     temp = []
 
     while arr.length!=0    
         temp = []
+        p arr
         arr.each do |value|
             if value%5==0
                 counter +=1
@@ -188,4 +190,18 @@ def number_trailing_zeros n
     return counter
 end
 
+
+# UPDATE: Analizing further the data we can observe we can also get the same result by counting the number of items in the array as it get reduced, which makes the method a lot more efficient. 
+
+
+def number_trailing_zeros n
+    arr= (5..n).step(5).to_a
+    number_of_elements = arr.length
+    counter = number_of_elements
+    while number_of_elements/5>=1
+        number_of_elements = number_of_elements / 5 
+        counter += number_of_elements
+    end
+    return counter
+end
 
