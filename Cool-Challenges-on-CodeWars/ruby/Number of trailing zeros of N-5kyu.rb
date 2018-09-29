@@ -16,8 +16,12 @@
 # # 12! = 479001600 --> 2 trailing zeros
 # Hint: You're not meant to calculate the factorial. Find another way to find the number of zeros.
 
-
-# *****SOLUTION*****
+#    _____           _           _     _                 
+#    / ____|         | |         | |   (_)                
+#   | (___     ___   | |  _   _  | |_   _    ___    _ __  
+#    \___ \   / _ \  | | | | | | | __| | |  / _ \  | '_ \ 
+#    ____) | | (_) | | | | |_| | | |_  | | | (_) | | | | |
+#   |_____/   \___/  |_|  \__,_|  \__| |_|  \___/  |_| |_|
 
 # By running the following code we can visualize the data of the first 25 numbers as shown below.
 
@@ -194,7 +198,7 @@ end
 # UPDATE: Analizing further the data we can observe we can also get the same result by counting the number of items in the array as it get reduced, which makes the method a lot more efficient. 
 
 
-def number_trailing_zeros n
+def number_trailing_zeros_optimised n
     arr= (5..n).step(5)
     number_of_elements = arr.size
     counter = number_of_elements

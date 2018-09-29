@@ -14,6 +14,14 @@
 # Testing: [1, 0, 1, 1] ==> 11
 # However, the arrays can have varying lengths, not just limited to 4.
 
+
+#    _____           _           _     _                 
+#    / ____|         | |         | |   (_)                
+#   | (___     ___   | |  _   _  | |_   _    ___    _ __  
+#    \___ \   / _ \  | | | | | | | __| | |  / _ \  | '_ \ 
+#    ____) | | (_) | | | | |_| | | |_  | | | (_) | | | | |
+#   |_____/   \___/  |_|  \__,_|  \__| |_|  \___/  |_| |_|
+
 def binary_array_to_number(arr)
     previous=0
     result = 0
