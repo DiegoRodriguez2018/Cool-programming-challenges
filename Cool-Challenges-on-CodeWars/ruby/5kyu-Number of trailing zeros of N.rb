@@ -195,8 +195,8 @@ end
 
 
 def number_trailing_zeros n
-    arr= (5..n).step(5).to_a
-    number_of_elements = arr.length
+    arr= (5..n).step(5)
+    number_of_elements = arr.size
     counter = number_of_elements
     while number_of_elements/5>=1
         number_of_elements = number_of_elements / 5 
