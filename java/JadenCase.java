@@ -23,17 +23,15 @@ public class JadenCase {
     }
 
 	public static String toJadenCase(String phrase) {
-	        if (phrase != null){
+        if (phrase != null){
             char[] arr = phrase.toCharArray();
             int i =0;
             String resultado = "";
             Boolean change = true;
-
             for (i=0;i<arr.length;i++){
                 if (change == true) {
                     resultado = resultado + Character.toUpperCase(arr[i]);
                     change = false;
-
                 }else {
                     if (arr[i]== ' ') change = true;
                     resultado = resultado + arr[i];
@@ -41,7 +39,6 @@ public class JadenCase {
             }
             if (resultado != "")    return resultado;
             else return null;
-
         }else return null;
 	}
 }
