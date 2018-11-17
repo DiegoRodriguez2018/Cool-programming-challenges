@@ -23,7 +23,7 @@ public static class Kata
 {
   static void Main(string[] args){
     //Test
-    DescendingOrder(45621);
+    Console.WriteLine(DescendingOrder(45621));
     // Should return 65421
   }
 
