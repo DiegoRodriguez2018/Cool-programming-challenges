@@ -28,9 +28,39 @@ public static class Kata
   }
 
   public static string AlphabetPosition(string text){
-    char c = 'a';
-    int result = (int)(c-'0');
+    // First we convert the string to lower case:
+    string lowerCase = text.ToLower();
+
+    // Then we convert to a char array:
+    char[] charArr = lowerCase.ToCharArray();
+    Console.WriteLine(charArr);
+
+    //Now we determine the position in the alphabet by substracting backtick (`)and cohercing to int. For example, assuming the chararcter is 'a', it will have an ASCII code of 97, and backtick an ASCII code of 96, therefore 97-96 = 1.
+    string result = "";
+
+    foreach (char c in charArr){
+        int position = (int)(c-'`');
+        if (position>0 && position<27){
+            result += position + " ";
+        }
+    }
+    //Finally we remove the last white space. 
+    if (result.Length>0){
+        result = result.Remove(result.Length-1);
+    }
+
     Console.WriteLine(result);
-    return text;
+    return result;
   }
 }
+
+// Favourite solution from CodeWars:
+
+// using System.Linq;
+// public static class Kata
+// {
+//   public static string AlphabetPosition(string text)
+//   {
+//      return string.Join(" ", text.ToLower().Where(char.IsLetter).Select(x => x - 'a'+1));
+//   }
+// }
