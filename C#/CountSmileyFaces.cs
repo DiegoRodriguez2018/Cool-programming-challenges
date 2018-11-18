@@ -29,34 +29,33 @@
 //   |_____/   \___/  |_|  \__,_|  \__| |_|  \___/  |_| |_|
 
 using System;
-using System.Text.RegularExpressions;
-
-
 public static class Kata
 {
   static void Main(string[] args){
     string[] test = {":)", ";(", ";}", ":-D"};
+    //=> 2
     Console.WriteLine(CountSmileys(test));
   }
-
-  public static int CountSmileys(string[] smileys) 
+  public static int CountSmileys(string[] smileys)
   {
-
-    Regex regex = new Regex(@":)");
-    Match match = regex.Match(":)");
-      if (match.Success){
-        Console.WriteLine(match);        
-        Console.WriteLine("yep");
+    int result = 0;
+    foreach (string smile in smileys){
+      if ((smile.Contains(":")|| smile.Contains(";")) && (smile.Contains(")")|| smile.Contains("D"))&& (smile.Contains(" ")==false)){
+        result+=1;
       }
-    
-
-    // foreach (string smile in smileys){
-    //   Match match = regex.Match(smile);
-    //   if (match.Success){
-    //     Console.WriteLine(smile);
-    //   }
-    // }
-
-    return 0;
+    }
+    return result;
   }
 }
+
+// Favourite solution from CodeWars:
+// using System.Text.RegularExpressions;
+// using System.Linq;
+
+// public static class Kata
+// {
+//   public static int CountSmileys(string[] smileys) 
+//   {
+//      return smileys.Count(s => Regex.IsMatch(s, @"^[:;]{1}[~-]{0,1}[\)D]{1}$"));
+//   }
+// }
