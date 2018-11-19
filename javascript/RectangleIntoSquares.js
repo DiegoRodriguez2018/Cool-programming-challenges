@@ -37,55 +37,52 @@
 // Return the string "nil" with Bash and Fortran.
 // You can see more examples in "RUN SAMPLE TESTS".
 
-function flipValues(arr){
-    return ([arr[1],arr[0]])
-}
+//    _____           _           _     _                 
+//    / ____|         | |         | |   (_)                
+//   | (___     ___   | |  _   _  | |_   _    ___    _ __  
+//    \___ \   / _ \  | | | | | | | __| | |  / _ \  | '_ \ 
+//    ____) | | (_) | | | | |_| | | |_  | | | (_) | | | | |
+//   |_____/   \___/  |_|  \__,_|  \__| |_|  \___/  |_| |_|
+
+
 
 function sqInRect(length, width){
-// USE MODULUS!
     if (length==width){
         return null
     }
     const result = []
-    let dimensions = [length, width]
-    // Where dimension[0] is the shortest side
-    if (dimensions[1]> dimensions[0]){
-        dimensions = flipValues(dimensions)
+    const dimensions = [length, width]
+    
+    while(dimensions[1]*dimensions[0]>1){
+        result.push(Math.min(...dimensions))
+        const temp = []
+        temp[0]= Math.max(...dimensions) - Math.min(...dimensions)
+        temp[1]= Math.min(...dimensions)
+        dimensions[0] = temp[0]
+        dimensions[1] = temp[1]
+        console.log("new dimensions", dimensions)
     }
 
-    result.push(dimensions[1]%dimensions[0])
-    while (dimensions[1]>1 && dimensions[0]>1) {
-        result.push(dimensions[0]%dimensions[1])
-        let temp = []
-        temp[0] =dimensions[1]%dimensions[0]
-        temp[1] =dimensions[0]%dimensions[1]
-        dimensions = temp
+    if(dimensions[0]>0){
+        result.push(1)
     }
-
-    result.push(1)
 
     return result
 }
 
-console.log(sqInRect(5, 5))
-console.log(sqInRect(5, 3))
 console.log(sqInRect(3, 5))
+// =>[3, 2, 1, 1]
 console.log(sqInRect(20, 14)) 
+// =>[14, 6, 6, 2, 2, 2]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Favourite solution from CodeWars:
+// function sqInRect(lng, wdth){
+//     let arr = []
+//     if(lng === wdth) return null
+//     while(lng > 0 && wdth > 0){
+//       arr.push(lng > wdth ? wdth : lng)
+//       lng > wdth ? lng -= wdth : wdth -= lng
+//     }
+//     return arr
+//   }
