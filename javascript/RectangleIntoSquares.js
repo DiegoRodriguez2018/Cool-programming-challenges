@@ -41,33 +41,17 @@ function flipValues(x,y){
     return ([y,x])
 }
 
-function sqInRect(longSide, sortSide){
+function sqInRect(length, width){
 // USE MODULUS!
     const result = []
+    const dimensions = [length, width]
+    // Where dimension[0] is the shortest side
     const remainder = 0 
-    if (shortSide>longSide){
-        
-        const temp = shortSide
-        shortSide = longSide
-        longSide = temp
+    if (dimensions[1]> dimensions[0]){    
+        dimensions = flipValues(dimensions)
     }
-    
-    result.push(shortSide)
-    const temp = shortSide
-    shortSide =  shortSide%longSide
-    longSide = temp
-    
-    remainder = longSide%shortSide
-    
-
-
-    remainder = maxSide - minSide
-
-    result.push (remainder)
-
-    remainder = minSide - maxSide
-
-    console.log(lng)
+    result.push(dimension[0]%dimensions[1])
+    dimensions = [(dimensions[1]%dimensions[0]),(dimensions[0]%dimensions[1]) ]
 
 }
 
