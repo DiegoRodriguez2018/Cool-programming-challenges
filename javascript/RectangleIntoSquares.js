@@ -37,23 +37,55 @@
 // Return the string "nil" with Bash and Fortran.
 // You can see more examples in "RUN SAMPLE TESTS".
 
-function flipValues(x,y){
-    return ([y,x])
+function flipValues(arr){
+    return ([arr[1],arr[0]])
 }
 
 function sqInRect(length, width){
 // USE MODULUS!
+    if (length==width){
+        return null
+    }
     const result = []
-    const dimensions = [length, width]
+    let dimensions = [length, width]
     // Where dimension[0] is the shortest side
-    const remainder = 0 
-    if (dimensions[1]> dimensions[0]){    
+    if (dimensions[1]> dimensions[0]){
         dimensions = flipValues(dimensions)
     }
-    result.push(dimension[0]%dimensions[1])
-    dimensions = [(dimensions[1]%dimensions[0]),(dimensions[0]%dimensions[1]) ]
 
+    result.push(dimensions[1]%dimensions[0])
+    while (dimensions[1]>1 && dimensions[0]>1) {
+        result.push(dimensions[0]%dimensions[1])
+        let temp = []
+        temp[0] =dimensions[1]%dimensions[0]
+        temp[1] =dimensions[0]%dimensions[1]
+        dimensions = temp
+    }
+
+    result.push(1)
+
+    return result
 }
 
+console.log(sqInRect(5, 5))
+console.log(sqInRect(5, 3))
+console.log(sqInRect(3, 5))
+console.log(sqInRect(20, 14)) 
 
-console.log(sqInRect(5, 3)) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
