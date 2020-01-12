@@ -1,3 +1,1 @@
-This is just a set of a wide range of programming challenges I have compleated  during my coding journey. They come from many sources, including; [Codewars](https://www.codewars.com), books, courses and online tutorials.
-
-I tried to add as many comments as possible for future reference but also hoping someone will find these solutions helpful. I'm always curious to explore new ways of thinking so please drop me a line if you find a more interesting way to solve them. 
+A collection of [Codewars](https://www.codewars.com) challenges.
